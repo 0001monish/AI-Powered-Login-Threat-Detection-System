@@ -1,16 +1,173 @@
-# React + Vite
+# AI-Powered Login Threat Detection & Risk-Based Authentication System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+An AI-driven cybersecurity project that enhances traditional authentication systems by detecting suspicious login behavior, calculating risk scores, and triggering Multi-Factor Authentication (MFA) when necessary.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+The system combines rule-based threat detection with machine learning anomaly detection to improve account security and reduce unauthorized access.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+### Authentication & Security
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- User Registration
+- Password Strength Validation
+- Password Hashing (bcrypt)
+- JWT Authentication
+- Email OTP Verification
+- OTP Expiry & Resend Limits
+- Account Lock after Multiple Failed Attempts
+- IP-Based Rate Limiting
+
+### AI Threat Detection
+
+- VPN / Proxy Detection
+- Failed Login Detection
+- New Device Detection
+- New Country Detection
+- Impossible Travel Detection
+- Brute Force Detection
+
+### Machine Learning
+
+- Isolation Forest Anomaly Detection
+- Login Behavior Analysis
+- Risk Score Generation
+- Threat Classification
+
+### Risk-Based Authentication
+
+- Dynamic Risk Scoring (0–100)
+- LOW / MEDIUM / HIGH Risk Levels
+- Adaptive MFA Triggering
+- Email OTP Verification for High-Risk Logins
+
+### Dashboard
+
+- Total Users
+- Total Logins
+- Threat Analytics
+- Recent Login Activity
+- Risk Monitoring
+
+---
+
+## Technology Stack
+
+### Backend
+
+- Python
+- FastAPI
+
+### Database
+
+- PostgreSQL
+- Neon Database
+
+### Security
+
+- JWT (python-jose)
+- bcrypt (Passlib)
+- SMTP Email OTP
+
+### AI / Machine Learning
+
+- Scikit-Learn
+- Isolation Forest
+- Pandas
+- NumPy
+
+### Dashboard
+
+- Streamlit
+
+### Tools
+
+- Postman
+- Git
+- GitHub
+- VS Code
+
+---
+
+## Project Architecture
+
+User
+→ FastAPI Backend
+→ Authentication Module
+→ AI Threat Detection Engine
+→ Isolation Forest ML Model
+→ Risk Scoring Engine
+→ PostgreSQL Database
+→ MFA System
+→ Streamlit Dashboard
+
+---
+
+## Database Tables
+
+### users
+
+- email
+- password
+- device
+- country
+- otp_code
+- is_verified
+- failed_attempts
+- locked_until
+
+### login_logs
+
+- user_email
+- ip_address
+- device
+- country
+- login_status
+- login_time
+
+### threats
+
+- user_email
+- threat_type
+- risk_level
+- risk_score
+
+### ip_rate_limits
+
+- ip_address
+- request_count
+- window_start
+
+---
+
+## Machine Learning Model
+
+Algorithm:
+
+- Isolation Forest
+
+Features:
+
+- new_device
+- new_country
+- vpn_detected
+- failed_login
+
+Output:
+
+- Normal
+- Anomaly
+
+---
+
+## Installation
+
+```bash
+git clone <repository-url>
+cd project-folder
+
+pip install -r requirements.txt
+```
